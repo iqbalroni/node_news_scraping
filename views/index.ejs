@@ -1,0 +1,60 @@
+<div class="news">
+  <div class="container">
+    <h3 class="mb-4">Berita Terbaru</h3>
+    <nav>
+      <ul class="pagination pagination-sm">
+        <% if(index <= 1){ %>
+        <li class="page-item disabled">
+          <a class="page-link">Sebelumnya</a>
+        </li>
+        <li class="page-item active" aria-current="page">
+          <span class="page-link"><%=index %></span>
+        </li>
+        <li class="page-item"><a class="page-link" href="?index=<%=index+1%>"><%=index+1%></a></li>
+        <li class="page-item"><a class="page-link" href="?index=<%=index+2%>"><%=index+2%></a></li>
+        <li class="page-item"><a class="page-link" href="?index=<%=index+3%>"><%=index+3%></a></li>
+        <li class="page-item"><a class="page-link" href="?index=<%=index+4%>"><%=index+4%></a></li>
+        <li class="page-item">
+          <a class="page-link" href="?index=<%=index+1%>">Selanjutnya</a>
+        </li>
+        <% }else{ %>
+        <li class="page-item">
+          <a class="page-link" href="?index=<%= index-1 %>">Sebelumnya</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="?index=<%=index-1%>"><%=index-1%></a></li>
+        <li class="page-item active" aria-current="page">
+          <span class="page-link"><%=index %></span>
+        </li>
+        <li class="page-item"><a class="page-link" href="?index=<%=index+2%>"><%=index+2%></a></li>
+        <li class="page-item"><a class="page-link" href="?index=<%=index+2%>"><%=index+3%></a></li>
+        <li class="page-item"><a class="page-link" href="?index=<%=index+3%>"><%=index+4%></a></li>
+        <li class="page-item">
+          <a class="page-link" href="?index=<%=index+1%>">Selanjutnya</a>
+        </li>
+        <% } %>
+      </ul>
+    </nav>
+    <form method="get" class="input-group mb-3">
+      <input type="text" name="cari" class="form-control" placeholder="Cari Berita Disini" required>
+      <div class="input-group-append">
+        <button class="btn btn-secondary" type="submit" id="button-addon2">Cari Berita</button>
+      </div>
+    </form>
+    <div class="row">
+      <% data.forEach(element => { %>
+      <div class="col-sm-3">
+        <div class="news-card">
+          <img src="<%=element['image']  %>">
+          <div class="categori">
+            <span>Berita Indonesia</span>
+            <span id="terbaru">Berita Terbaru</span>
+          </div>
+          <p><%=element['tanggal'] %></p>
+          <h3><%=element['judul']  %></h3>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+
+  </div>
+</div>
